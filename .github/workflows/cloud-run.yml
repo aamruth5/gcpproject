@@ -1,11 +1,10 @@
 name: gcppoject
 
 on:
-  pull_request:
   push:
     branches:
-      - main
       - master
+      - main
 
 
 env:
@@ -24,7 +23,7 @@ jobs:
 
         # Authenticate wth Google Cloud
         - id: "auth"
-        users: "google-github-actions/auth@v0"
+        uses: "google-github-actions/auth@v0"
         with:
           credentials_json: "${{ secrets.CLOUD_RUN_SERVICE_ACCOUNT }}"
 
